@@ -1,7 +1,7 @@
 'use strict';
 
-const pdx = {
-    name: 'PDX',
+const airport = {
+    name: 'Airport',
     min: 23,
     max: 65,
     avg: 6.3,
@@ -51,8 +51,10 @@ const waterfront = {
 }
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-const stores = [pdx, piosquare, powells, stjohns, waterfront];
+const stores = [airport, piosquare, powells, stjohns, waterfront];
 const elStores = document.getElementById('stores');
+
+// generate sales per hour, based on random number of customers
 
 function hourlySales() {
     const salesByHour = [];
@@ -69,11 +71,13 @@ function hourlySales() {
     this.salesByHour = salesByHour;
 }
 
-pdx.hourlySales();
+airport.hourlySales();
 piosquare.hourlySales();
 powells.hourlySales();
 stjohns.hourlySales();
 waterfront.hourlySales();
+
+// random number generator
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -82,20 +86,20 @@ function getRandomIntInclusive(min, max) {
 }
 
 // created object literals for each store instance
-// object literal, pdx
-// const pdxdiv = document.getElementById('pdx-store');
-// const pdxh2 = document.createElement('h2');
-// pdxh2.textContent = pdx.name;
-// pdxdiv.appendChild(pdxh2);
-// console.log(pdxdiv);
-// console.log(pdxh2);
+// object literal, airport
+// const airportdiv = document.getElementById('airport-store');
+// const airporth2 = document.createElement('h2');
+// airporth2.textContent = airport.name;
+// airportdiv.appendChild(airporth2);
+// console.log(airportdiv);
+// console.log(airporth2);
 
-// const pdxul = document.getElementById('pdx-list');
+// const airportul = document.getElementById('airport-list');
 // for (let i = 0; i < hours.length; i++) {
-//     const pdxli = document.createElement('li');
-//     pdxli.textContent = hours[i] + ': ' + pdx.salesByHour[i].cookiesSold + ' cookies';
-//     pdxh2.appendChild(pdxul);
-//     pdxul.appendChild(pdxli); 
+//     const airportli = document.createElement('li');
+//     airportli.textContent = hours[i] + ': ' + airport.salesByHour[i].cookiesSold + ' cookies';
+//     airporth2.appendChild(airportul);
+//     airportul.appendChild(airportli); 
 // }
 
 // // object literal, piosquare
@@ -163,8 +167,6 @@ function getRandomIntInclusive(min, max) {
 // }
 
 //render function, constructor objects
-// render();
-
 
 function render (elParent) {
     const elH2 = document.createElement('h2');
@@ -181,25 +183,8 @@ function render (elParent) {
     }
 };
 
-pdx.render(elStores);
+airport.render(elStores);
 piosquare.render(elStores);
 powells.render(elStores);
 stjohns.render(elStores);
 waterfront.render(elStores);
-
-//     function(){
-//         const ul = document.getElementById('store-list');
-//         const li = document.createElement('li');
-//          li.textContent = this.hour + ' ' + this.salesByHour;
-//         //  ul.appendChild(li);
-//          return li;
-
-// render();
-// function render () {
-// const ul = document.getElementById('store-list');
-// const li = document.createElement('li');
-// li.textContent = "List item";
-// ul.appendChild(li);
-// }
-
-
