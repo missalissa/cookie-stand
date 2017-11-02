@@ -5,14 +5,6 @@ const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm',
 
 // store object constructors
 
-// this is how it was stores were initially decloared; longer form
-
-// const airport = new Store ('Airport', 23, 65, 6.3);
-// const piosquare = new Store ('Pioneer Square', 3, 24, 1.2);
-// const powells = new Store ('Powell\'s', 23, 65, 6.3);
-// const stjohns = new Store ('St. Johns', 23, 65, 6.3);
-// const waterfront = new Store ('Waterfront', 23, 65, 6.3);
-
 const stores = [
     new Store ('Airport', 23, 65, 6.3), 
     new Store ('Pioneer Square', 3, 24, 1.2),
@@ -47,14 +39,6 @@ function Store(name, min, max, avg) {
 }
 
 
-// random number generator 
-
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive 
-}
-
 // rendering/build function (these properties apply to ALL stores)
 
 Store.prototype.build = function() {
@@ -80,29 +64,7 @@ return this.row;
 }
 
 
-// this is one way (longer form) to build each row
-
-// const airportRow = airport.build();
-// console.log('airport row = ', airportRow);
-// console.log('airport.row = ', airport.row);
-
-// const piosquareRow = piosquare.build();
-// const powellsRow = powells.build();
-// const stjohnsRow = stjohns.build();
-// const waterfrontRow = waterfront.build();
-
-
-// this is another way (longer form) to build each row
-
-// tbody.appendChild(airport.build());
-// tbody.appendChild(piosquare.build());
-// tbody.appendChild(powells.build());
-// tbody.appendChild(stjohns.build());
-// tbody.appendChild(waterfront.build());
-
-
 // this is a cleaner way to build each row, when stores are stored in an array
-
 
 const tbody = document.getElementById('table-body');
 for (let i = 0; i < stores.length; i++) {
@@ -152,3 +114,12 @@ buildTableHead ();
 //         const allSalesByHour = 0 + salesByHour[i];
 //     }
 // }
+
+
+// random number generator 
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive 
+}
