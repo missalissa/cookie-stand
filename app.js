@@ -94,7 +94,7 @@ const buildTableHead = function () {
     thead.appendChild(theadRow); // appends table head row to table head
 
     const thTotal = document.createElement('TH') // creates totals cell
-    thTotal.textContent = 'Daily Totals'; // popluates cell with text
+    thTotal.textContent = 'Daily Location Total'; // popluates cell with text
     theadRow.appendChild(thTotal); // appends totals cell to table head row
 };
 
@@ -102,9 +102,30 @@ buildTableHead ();
 
 
 // random number generator 
-
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive 
 }
+
+
+// begin form
+const form = document.getElementById('new-location');
+
+// add event listener
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    console.log('the form heard a submit event!');
+
+     // get data from form inputs
+     const name = document.getElementById('name').value;
+     const min = document.getElementById('min').value;
+     const max = document.getElementById('max').value;
+     const avg = document.getElementById('avg').value;
+
+     // create new instance of store
+     const newStore = new Store(name, min, max, avg);
+     
+     // append data to DOM
+     tbody.appendChild(newStore.build());
+});
