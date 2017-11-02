@@ -110,27 +110,45 @@ for (let i = 0; i < stores.length; i++) {
 }
 
 
-// fill header row with hours
+// fill header row with hours as a function
 
-const thead = document.getElementById('table-head'); // references table head
-const theadRow = document.createElement('TR') // creates table head row
-const thBlank = document.createElement('TH') //creates blank first cell
-theadRow.appendChild(thBlank);
-
-for (let i = 0; i < hours.length; i++) {
-    const theadHours = document.createElement('TH'); // creates row items <THs> for each hour
-    theadHours.textContent = hours[i]; // populates row with data (why is cookiesSold needed?)    
-    theadRow.appendChild(theadHours); // appends table head data to table head row 
-}
-    console.log(theadRow);
-
-thead.appendChild(theadRow); // appends table head row to table head
+const buildTableHead = function () {
+    const thead = document.getElementById('table-head'); // references table head
+    const theadRow = document.createElement('TR') // creates table head row
+    const thBlank = document.createElement('TH') // creates blank first cell
+    theadRow.appendChild(thBlank); // appends blank cell to table head row
     
+    for (let i = 0; i < hours.length; i++) {
+        const theadHours = document.createElement('TH'); // creates row items <THs> for each hour
+        theadHours.textContent = hours[i]; // populates row with data (why is cookiesSold needed?)    
+        theadRow.appendChild(theadHours); // appends table head data to table head row 
+    }    
+    thead.appendChild(theadRow); // appends table head row to table head
+};
 
-// fill row with data
-// for (let i = 0; i < this.salesByHour.length; i++) {
-//     const tableDataSales = document.createElement('TD'); // creates row items (TDs) for sales data
-//     tableRow.appendChild(tableDataSales); // appends table data to table row 
-//     tableDataSales.textContent = this.salesByHour[i].cookiesSold; // populates row with data (why is cookiesSold needed?)
+buildTableHead ();
+
+
+// // create footer row with totals--Stretch Goal
+
+// const buildTableFoot = function () {
+//     const tfoot = document.getElementById('table-foot'); // references table foot
+//     const tfootRow = document.createElement('TR') // creates table foot row
+//     const thTotal = document.createElement('TH') // creates TH for total
+//     tfootRow.appendChild(thTotal); // appends total header cell to table foot row
+    
+//     for (let i = 0; i < hours.length; i++) {
+//         const tfootTotals = document.createElement('TH'); // creates row items <THs> for each hour
+//         tfootTotals.textContent = hours[i]; // populates row with data, calculate sum all stores numCookies sold each hour   
+//         tfootRow.appendChild(tfootTotals); // appends table head data to table head row 
+//     }    
+//     tbody.appendChild(tfootRow); // appends table foot row to table body
+// };
+
+// buildTableFoot ();
+
+// function sumAllSalesByHour () {
+//     for (let i = 0; i < stores.length; i++) {
+//         const allSalesByHour = 0 + salesByHour[i];
 //     }
-    
+// }
