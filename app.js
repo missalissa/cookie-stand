@@ -2,7 +2,6 @@
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-
 // store object constructors
 
 const stores = [
@@ -22,9 +21,9 @@ function Store(name, min, max, avg) {
     this.max = max;
     this.avg = avg;
     this.salesByHour = []; // empty array that will be populated when the hourlySales function is run
+    this.salesByDay = 0; // sums salesByHour array
 
-    // generate sales per hour, based on random number of customers
-
+    // generate sales per hour, based on random number of customers; calculate total daily sales
     for (let i = 0; i < hours.length; i++) {
         const hour = hours[i];
         const numCustomers = getRandomIntInclusive(this.min, this.max);
@@ -34,8 +33,10 @@ function Store(name, min, max, avg) {
             cookiesSold: numCookies
         }
         this.salesByHour.push(oneHour);
+        this.salesByDay = this.salesByDay + numCookies; // calculate total daily sales
     }  
-    console.log(this.salesByHour);
+    console.log('this is sales by hour: ' + this.salesByHour);
+    console.log('this is sales by day: ' + this.salesByDay);
 }
 
 
@@ -57,6 +58,11 @@ Store.prototype.build = function() {
         tableRow.appendChild(tableDataSales); // appends table data to table row 
         tableDataSales.textContent = this.salesByHour[i].cookiesSold; // populates row with data (why is cookiesSold needed?)
     }
+
+    // add totals to end of row
+    const tdTotalSales = document.createElement('TD'); // creates td for total sales data
+    tableRow.appendChild(tdTotalSales); // appends cell to table row 
+    tdTotalSales.textContent = this.salesByDay; // populates cell with total
 
 console.log('table row = ', tableRow);
 this.row = tableRow;
@@ -86,34 +92,13 @@ const buildTableHead = function () {
         theadRow.appendChild(theadHours); // appends table head data to table head row 
     }    
     thead.appendChild(theadRow); // appends table head row to table head
+
+    const thTotal = document.createElement('TH') // creates totals cell
+    thTotal.textContent = 'Daily Totals'; // popluates cell with text
+    theadRow.appendChild(thTotal); // appends totals cell to table head row
 };
 
 buildTableHead ();
-
-
-// // create footer row with totals--Stretch Goal
-
-// const buildTableFoot = function () {
-//     const tfoot = document.getElementById('table-foot'); // references table foot
-//     const tfootRow = document.createElement('TR') // creates table foot row
-//     const thTotal = document.createElement('TH') // creates TH for total
-//     tfootRow.appendChild(thTotal); // appends total header cell to table foot row
-    
-//     for (let i = 0; i < hours.length; i++) {
-//         const tfootTotals = document.createElement('TH'); // creates row items <THs> for each hour
-//         tfootTotals.textContent = hours[i]; // populates row with data, calculate sum all stores numCookies sold each hour   
-//         tfootRow.appendChild(tfootTotals); // appends table head data to table head row 
-//     }    
-//     tbody.appendChild(tfootRow); // appends table foot row to table body
-// };
-
-// buildTableFoot ();
-
-// function sumAllSalesByHour () {
-//     for (let i = 0; i < stores.length; i++) {
-//         const allSalesByHour = 0 + salesByHour[i];
-//     }
-// }
 
 
 // random number generator 
