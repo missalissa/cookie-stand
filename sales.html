@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Cookie Stand</title>
+    <title>Salmon Cookie Sales</title>
     <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Molle:400i|Source+Sans+Pro:300,400,700,900" rel="stylesheet">
 </head>
 <body>
-    <h1>Daily Sales Projections</h1>
-        <div id="store-list">
-                <table>
-                        <thead id="table-head"></thead>
-                        <tbody id="table-body"></tbody>
-                        <tfoot id="table-foot"></tfoot>
-                </table>
-        </div>
+    <header>
+            <div>
+                <h1>Salmon Cookies</h1>
+            </div>
+            <div id="nav">
+                <ul>
+                    <li>sign out</li>
+                </ul>
+            </div>
+        </header>
+    <main>
+        <div id="sales">
+            <h1>Daily Sales Projections</h1>
+                <div id="store-list">
+                        <table>
+                                <thead id="table-head"></thead>
+                                <tbody id="table-body"></tbody>
+                                <tfoot id="table-foot"></tfoot>
+                        </table>
+                </div>
 
-        <section id="form"></section>
-        <h1>New Location</h1>    
-        <form id="new-location">
-            <fieldset>
-                <legend>Add New Location</legend>
-                <label for="name">Store Name</label>
-                <input id="name" type="text" placeholder="Location" required>
-                
-                <label for="min">Minimum Customers</label>
-                <input id="min" type="number" placeholder="0" required>
-                
-                <label for="max">Maximum Customers</label>
-                <input id="max" type="number" placeholder="0" required>
-                
-                <label for="avg">Average Cookie Sales</label>
-                <input id="avg" type="number" placeholder="0" required>
+                <section id="form"></section>
+                <h1>New Location</h1>    
+                <form id="new-location">
+                    <fieldset>
+                        <!-- <legend>Add New Location</legend> -->
+                        <label for="name">Store Name</label>
+                        <input id="name" type="text" placeholder="Location" required>
+                        
+                        <label for="min">Minimum Customers</label>
+                        <input id="min" type="number" placeholder="0" required>
+                        
+                        <label for="max">Maximum Customers</label>
+                        <input id="max" type="number" placeholder="0" required>
+                        
+                        <label for="avg">Average Cookie Sales</label>
+                        <input id="avg" type="number" placeholder="0" required>
 
-                <button type="submit">Add Store</button>
-                
-            </fieldset>
-        </form>
+                        <button type="submit">Add Store</button>
+                        
+                    </fieldset>
+                </form>
+            </div>
+        </main>
     <script src="app.js"></script>    
 </body>
 </html>

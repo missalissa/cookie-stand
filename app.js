@@ -69,7 +69,6 @@ this.row = tableRow;
 return this.row;
 }
 
-
 // this is a cleaner way to build each row, when stores are stored in an array
 
 const tbody = document.getElementById('table-body');
@@ -107,7 +106,7 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive 
 }
-
+   
 
 // begin form
 const form = document.getElementById('new-location');
